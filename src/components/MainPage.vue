@@ -1,151 +1,443 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+  <v-container fluid class="app-container">
+    <section class="promo">
+      <div class="promo__text">
+        <h1 class="promo__text-title">
+          Photo of the <br />
+          Day by <br />
+          guangxi liu
         </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
+        <p class="promo__text-description">
+          The internet’s source of freely usable images.<br />
+          Powered by creators everywhere.
         </p>
-      </v-col>
+        <a href="#" class="promo__text-link">Explore All</a>
+      </div>
+      <img
+        class="promo__hero-image"
+        src="../../public/images/hero-image.png"
+        alt="Photo"
+      />
+    </section>
+    <section class="search">
+      <h2 class="visually-hidden">Search</h2>
+      <v-text-field
+        class="search__input"
+        append-icon="mdi-magnify"
+        label="Search for high-resolution photos"
+      />
+      <ul class="search__menu">
+        <li>
+          <button class="search__menu-btn">Trending</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Nature</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Travel</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Animals</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Food</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Health</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Technology</button>
+        </li>
+        <li>
+          <button class="search__menu-btn">Events</button>
+        </li>
+      </ul>
+    </section>
+    <section class="gallery">
+      <h2 class="visually-hidden">Photo Gallery</h2>
+      <article class="gallery__small-article">
+        <img src="../../public/images/hero-image.png" alt="Tom Öhlin photo" />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Tom Öhlin</h3>
+          <p class="gallery__small-article-subtitle">
+            Indjinup Spa, WA, Australia (TAGS)
+          </p>
+          <p class="gallery__small-article-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/featured_meal.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__big-article">
+        <img
+          class="gallery__big-article-photo"
+          src="../../public/images/road.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__big-article-content-wrapper">
+          <div class="gallery__big-article-content">
+            <h3 class="gallery__big-article-title">Featured meal</h3>
+            <p class="gallery__big-article-subtitle">
+              Served with french fries + drink
+            </p>
+            <p class="gallery__big-article-text">
+              Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add
+              whopper patty, Add Tender crisp patty and more. Add Tender crisp
+              patty and more.
+            </p>
+            <section
+              @mousedown.left="onMouseDown"
+              @mousemove="onMouseMove($event, $refs.carousel)"
+              @mouseup="dragging = false"
+            >
+              <h2 class="visually-hidden">Additional photos</h2>
+              <vue-horizontal
+                class="gallery__big-article-carousel"
+                ref="carousel"
+                snap="none"
+                :button="false"
+                @scroll="onScroll"
+              >
+                <v-img
+                  class="gallery__big-article-carousel-image"
+                  v-for="i in 5"
+                  :key="i"
+                  src="../../public/images/hero-image.png"
+                  alt="Photo"
+                />
+              </vue-horizontal>
+            </section>
 
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
+            <div class="gallery__big-article-buttons">
+              <a class="gallery__big-article-order-link" href="#">Order Now</a>
+              <button class="gallery__big-article-more-button">
+                <v-icon>mdi-dots-horizontal</v-icon>
+              </button>
+            </div>
+          </div>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
+          <ul class="gallery__big-article-actions">
+            <li class="gallery__big-article-actions-item">
+              <v-icon>mdi-bookmark-outline</v-icon>
+            </li>
+            <v-spacer />
+            <li class="gallery__big-article-actions-item mr-7">
+              <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+            </li>
+            <li class="gallery__big-article-actions-item">
+              <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="gallery__big-article">
+        <img
+          class="gallery__big-article-photo"
+          src="../../public/images/road.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__big-article-content-wrapper">
+          <div class="gallery__big-article-content">
+            <h3 class="gallery__big-article-title">Featured meal</h3>
+            <p class="gallery__big-article-subtitle">
+              Served with french fries + drink
+            </p>
+            <p class="gallery__big-article-text">
+              Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add
+              whopper patty, Add Tender crisp patty and more. Add Tender crisp
+              patty and more.
+            </p>
+            <section
+              @mousedown.left="onMouseDown"
+              @mousemove="onMouseMove($event, $refs.carousel2)"
+              @mouseup="dragging = false"
+            >
+              <h2 class="visually-hidden">Additional photos</h2>
+              <vue-horizontal
+                class="gallery__big-article-carousel"
+                ref="carousel2"
+                snap="none"
+                :button="false"
+                @scroll="onScroll"
+              >
+                <v-img
+                  class="gallery__big-article-carousel-image"
+                  v-for="i in 5"
+                  :key="i"
+                  src="../../public/images/featured_meal.png"
+                  alt="Photo"
+                />
+              </vue-horizontal>
+            </section>
 
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
+            <div class="gallery__big-article-buttons">
+              <a class="gallery__big-article-order-link" href="#">Order Now</a>
+              <button class="gallery__big-article-more-button">
+                <v-icon>mdi-dots-horizontal</v-icon>
+              </button>
+            </div>
+          </div>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
+          <ul class="gallery__big-article-actions">
+            <li class="gallery__big-article-actions-item">
+              <v-icon>mdi-bookmark-outline</v-icon>
+            </li>
+            <v-spacer />
+            <li class="gallery__big-article-actions-item mr-7">
+              <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+            </li>
+            <li class="gallery__big-article-actions-item">
+              <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/featured_meal.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/hero-image.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/featured_meal.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/hero-image.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/featured_meal.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+      <article class="gallery__small-article">
+        <img
+          src="../../public/images/hero-image.png"
+          alt="Featured meal photo"
+        />
+        <div class="gallery__small-article-content">
+          <h3 class="gallery__small-article-title">Featured meal</h3>
+          <p class="gallery__small-article-subtitle">
+            Served with french fries + drink
+          </p>
+          <p class="gallery__small-article-text">
+            Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper
+            patty, Add Tender crisp patty and more.
+          </p>
+        </div>
+        <ul class="gallery__small-article-actions">
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-bookmark-outline</v-icon>
+          </li>
+          <v-spacer />
+          <li class="gallery__small-article-actions-item mr-7">
+            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+          </li>
+          <li class="gallery__small-article-actions-item">
+            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+          </li>
+        </ul>
+      </article>
+    </section>
   </v-container>
 </template>
 
 <script>
-  export default {
-    name: 'HelloWorld',
+import VueHorizontal from "vue-horizontal";
 
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  }
+export default {
+  name: "MainPage",
+  components: { VueHorizontal },
+  data() {
+    return {
+      left: 0,
+      originX: 0,
+      originLeft: 0,
+      dragging: false,
+    };
+  },
+  methods: {
+    onScroll({ left }) {
+      this.left = left;
+    },
+    onMouseDown(event) {
+      this.dragging = true;
+      this.originX = event.pageX;
+      this.originLeft = this.left;
+    },
+    onMouseMove(event, element) {
+      if (this.dragging) {
+        const offset = event.pageX - this.originX;
+        const left = this.originLeft - offset;
+        element.scrollToLeft(left, "auto");
+      }
+    },
+  },
+};
 </script>
+
+<style></style>
