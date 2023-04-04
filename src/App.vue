@@ -2,7 +2,6 @@
   <v-app>
     <header>
       <nav>
-
         <v-spacer></v-spacer>
 
         <ul class="menu-links">
@@ -15,14 +14,12 @@
           <li class="menu-icons__item"><v-icon>mdi-account-outline</v-icon></li>
           <li class="menu-icons__item"><v-icon>mdi-magnify</v-icon></li>
         </ul>
-
       </nav>
     </header>
 
     <v-main>
       <MainPage />
     </v-main>
-
   </v-app>
 </template>
 
