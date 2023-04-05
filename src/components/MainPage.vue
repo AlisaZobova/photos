@@ -13,7 +13,7 @@
         </p>
         <a href="#" class="promo__text-link">Explore All</a>
       </div>
-      <img
+      <v-img
         class="promo__hero-image"
         src="../../public/images/hero-image.png"
         alt="Photo"
@@ -56,7 +56,7 @@
     <section class="gallery">
       <h2 class="visually-hidden">Photo Gallery</h2>
       <article class="gallery__small-article">
-        <img
+        <v-img
           @click="openDialog('./images/hero-image.png')"
           src="../../public/images/hero-image.png"
           alt="Tom Öhlin photo"
@@ -87,7 +87,7 @@
       </article>
 
       <article class="gallery__small-article">
-        <img
+        <v-img
           @click="openDialog('./images/featured_meal.png')"
           src="../../public/images/featured_meal.png"
           alt="Featured meal photo"
@@ -116,7 +116,7 @@
         </ul>
       </article>
       <article class="gallery__big-article">
-        <img
+        <v-img
           @click="openDialog('./images/road.png')"
           class="gallery__big-article-photo"
           src="../../public/images/road.png"
@@ -179,7 +179,7 @@
         </div>
       </article>
       <article class="gallery__big-article">
-        <img
+        <v-img
           @click="openDialog('./images/road.png')"
           class="gallery__big-article-photo"
           src="../../public/images/road.png"
@@ -246,7 +246,11 @@
         :key="i"
         class="gallery__small-article"
       >
-        <img @click="openDialog(photo.src)" :src="photo.src" :alt="photo.alt" />
+        <v-img
+          @click="openDialog(photo.src)"
+          :src="photo.src"
+          :alt="photo.alt"
+        />
         <div class="gallery__small-article-content">
           <h3 class="gallery__small-article-title">Featured meal</h3>
           <p class="gallery__small-article-subtitle">
@@ -281,10 +285,14 @@
             ></v-btn
           >
         </header>
-        <img :src="dialogImage" alt="Photo" class="detail-dialog__main-photo" />
+        <v-img
+          :src="dialogImage"
+          alt="Photo"
+          class="detail-dialog__main-photo"
+        />
         <section class="detail-dialog__author-info">
           <h2 class="visually-hidden">Author info</h2>
-          <img
+          <v-img
             src="../../public/images/author-photo.png"
             alt="Author photo"
             class="detail-dialog__author-photo"
