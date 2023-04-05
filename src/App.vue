@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header>
+    <header class="page-header">
       <nav>
         <v-spacer></v-spacer>
 
