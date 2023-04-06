@@ -18,6 +18,8 @@
   font-display: auto;
   unicode-range: U+000-5FF;
   src: local("HelveticaNeue-Medium"),
+    url("../../../public/fonts/HelveticaNeueMedium/HelveticaNeueMedium.ttf")
+      format("truetype"),
     url("../../../public/fonts/HelveticaNeueMedium/HelveticaNeueCyr-Medium.woff2")
       format("woff2"),
     url("../../../public/fonts/HelveticaNeueMedium/HelveticaNeueCyr-Medium.woff")
@@ -168,7 +170,7 @@ html::-webkit-scrollbar-track {
         height: 258px;
       }
       .gallery__small-article-content {
-        padding: 40px;
+        padding: 36px 40px;
       }
     }
 
@@ -450,7 +452,7 @@ html::-webkit-scrollbar-track {
       width: 368px;
 
       .gallery__small-article-content {
-        padding: 40px;
+        padding: 36px 40px;
       }
     }
 
@@ -498,7 +500,7 @@ html::-webkit-scrollbar-track {
       width: 368px;
 
       .gallery__small-article-content {
-        padding: 40px;
+        padding: 36px 40px;
       }
     }
 
@@ -730,8 +732,8 @@ html::-webkit-scrollbar-track {
     }
 
     .gallery__small-article-actions {
-      padding-right: 38px;
-      padding-left: 38px !important;
+      padding-right: 36px;
+      padding-left: 36px !important;
       border-top: #eaeaea 1px solid;
       height: 48px;
       display: flex;
@@ -854,7 +856,7 @@ html::-webkit-scrollbar-track {
       }
 
       .gallery__big-article-actions {
-        padding-right: 38px;
+        padding-right: 36px;
         padding-left: 35px !important;
         border-top: #eaeaea 1px solid;
         border-radius: 0 0 10px 10px;
