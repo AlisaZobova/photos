@@ -275,10 +275,8 @@
     <v-dialog v-model="dialog" content-class="detail-dialog">
       <v-card>
         <header>
-          <v-btn plain class="detail-dialog__close-btn"
-            ><v-icon class="detail-dialog__close-icon" @click="closeDialog"
-              >mdi-close</v-icon
-            ></v-btn
+          <v-icon class="detail-dialog__close-icon" @click="closeDialog"
+            >mdi-close</v-icon
           >
         </header>
         <v-img
@@ -312,11 +310,7 @@
           />
         </section>
         <footer>
-          <v-btn plain
-            ><v-icon class="detail-dialog__more-icon"
-              >mdi-dots-horizontal</v-icon
-            ></v-btn
-          >
+          <v-icon class="detail-dialog__more-icon">mdi-dots-horizontal</v-icon>
         </footer>
       </v-card>
     </v-dialog>

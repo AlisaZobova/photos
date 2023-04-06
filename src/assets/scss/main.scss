@@ -39,6 +39,14 @@
       format("woff");
 }
 
+@mixin smooth() {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 @mixin header_link() {
   text-decoration: none;
   color: black !important;
@@ -46,21 +54,29 @@
   font-size: 14px;
   font-weight: 400;
 
-  &:active {
-    font-weight: 600;
+  &:active,
+  &:hover {
+    @include smooth();
+    text-shadow: -0.001em -0.001em 0, 0.001em -0.001em 0, -0.001em 0.001em 0,
+      0.001em 0.001em 0;
+    font-size: 15px;
   }
 
   &.selected {
+    @include smooth();
     color: #57a773 !important;
   }
 }
 
-html::-webkit-scrollbar {
-  width: 0;
-}
-
-html::-webkit-scrollbar-track {
-  display: none;
+@mixin actions_icon() {
+  .v-icon:hover {
+    @include smooth();
+    color: black;
+  }
+  .v-icon::after {
+    @include smooth();
+    background-color: white;
+  }
 }
 
 .visually-hidden {
@@ -118,7 +134,8 @@ html::-webkit-scrollbar-track {
         height: 20px;
 
         .v-icon:hover {
-          transform: scale(1.1);
+          color: #57a773;
+          @include smooth();
         }
 
         .v-icon:active {
@@ -316,8 +333,8 @@ html::-webkit-scrollbar-track {
     .detail-dialog__gallery {
       height: 277px;
     }
-    .detail-dialog__close-btn {
-      left: 987px;
+    .detail-dialog__close-icon {
+      left: 990px;
     }
   }
 }
@@ -340,10 +357,6 @@ html::-webkit-scrollbar-track {
 
     nav {
       left: 50px;
-
-      .v-app-bar__nav-icon {
-        margin-right: 400px;
-      }
     }
   }
 
@@ -526,7 +539,7 @@ html::-webkit-scrollbar-track {
   .page-header {
     nav {
       .v-app-bar__nav-icon {
-        margin-right: 150px;
+        margin-right: 100px;
       }
     }
   }
@@ -610,11 +623,13 @@ html::-webkit-scrollbar-track {
     margin-top: 21px;
 
     &:hover {
+      @include smooth();
       transform: scale(1.05);
       background: #029334;
     }
 
     &:active {
+      @include smooth();
       background: white;
       color: #57a773 !important;
       border: #57a773 1px solid;
@@ -671,11 +686,13 @@ html::-webkit-scrollbar-track {
 
       &:hover,
       &.selected {
+        @include smooth();
         color: #464a56;
         border: #464a56 1px solid;
       }
 
       &:active {
+        @include smooth();
         color: #464a56;
         border: none;
       }
@@ -690,6 +707,7 @@ html::-webkit-scrollbar-track {
   gap: 32px;
   max-width: 1568px;
   margin: 0 auto;
+  padding-bottom: 32px;
 
   .gallery__small-article {
     max-height: 501px;
@@ -699,6 +717,7 @@ html::-webkit-scrollbar-track {
     .v-image {
       border-radius: 10px 10px 0 0;
       display: block;
+      cursor: pointer;
     }
 
     .gallery__small-article-content {
@@ -748,12 +767,7 @@ html::-webkit-scrollbar-track {
         font-weight: 400;
         letter-spacing: 0.1625px;
 
-        .v-icon:hover {
-          transform: scale(1.1);
-        }
-        .v-icon::after {
-          background-color: white;
-        }
+        @include actions_icon();
       }
     }
   }
@@ -764,6 +778,7 @@ html::-webkit-scrollbar-track {
 
     .gallery__big-article-photo {
       display: block;
+      cursor: pointer;
     }
 
     .gallery__big-article-content-wrapper {
@@ -873,13 +888,7 @@ html::-webkit-scrollbar-track {
           font-weight: 400;
           letter-spacing: 0.1625px;
 
-          .v-icon:hover {
-            transform: scale(1.1);
-          }
-
-          .v-icon::after {
-            background-color: white;
-          }
+          @include actions_icon();
         }
       }
     }
@@ -898,12 +907,6 @@ html::-webkit-scrollbar-track {
     width: 100%;
     align-items: center;
     display: flex;
-  }
-  .detail-dialog__close-btn {
-    min-width: 30px !important;
-    height: 30px !important;
-    font-size: 30px;
-    padding: 0 !important;
   }
   .detail-dialog__main-photo {
     width: 100%;
