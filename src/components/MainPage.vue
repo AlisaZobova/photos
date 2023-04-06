@@ -19,7 +19,7 @@
         alt="Photo"
       />
     </section>
-    <section class="search">
+    <section class="search" ref="search">
       <h2 class="visually-hidden">Search</h2>
       <v-text-field
         class="search__input"
@@ -436,6 +436,22 @@ export default {
     closeDialog() {
       this.dialog = false;
       this.dialogImage = "";
+    },
+    goToSearchBlock() {
+      let element = this.$refs["search"];
+      let top = element.offsetTop;
+      window.scrollTo(0, top);
+    },
+  },
+  props: {
+    goToSearch: Boolean,
+  },
+  watch: {
+    goToSearch(newVal) {
+      if (newVal) {
+        this.goToSearchBlock();
+        this.$emit("clearProps");
+      }
     },
   },
 };

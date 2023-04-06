@@ -33,13 +33,15 @@
 
         <ul class="menu-icons">
           <li class="menu-icons__item"><v-icon>mdi-account-outline</v-icon></li>
-          <li class="menu-icons__item"><v-icon>mdi-magnify</v-icon></li>
+          <li class="menu-icons__item">
+            <v-icon @click="goToSearch = true">mdi-magnify</v-icon>
+          </li>
         </ul>
       </nav>
     </header>
 
     <v-main>
-      <MainPage />
+      <MainPage :go-to-search="goToSearch" @clearProps="goToSearch = false" />
     </v-main>
   </v-app>
 </template>
@@ -52,6 +54,12 @@ export default {
 
   components: {
     MainPage,
+  },
+
+  data() {
+    return {
+      goToSearch: false,
+    };
   },
 };
 </script>
