@@ -5,9 +5,16 @@
         <v-spacer />
 
         <ul class="menu-links">
-          <li class="menu-links__item"><a href="#">Home</a></li>
-          <li class="menu-links__item"><a href="#">Featured collections</a></li>
-          <li class="menu-links__item"><a href="#">My profile</a></li>
+          <li
+            class="menu-links__item"
+            v-for="(item, i) in menuItems"
+            :key="i"
+            @click="currentPage = item"
+          >
+            <a href="#" :class="currentPage === item ? 'selected' : ''">{{
+              item
+            }}</a>
+          </li>
         </ul>
 
         <v-menu offset-y>
@@ -19,20 +26,25 @@
             ></v-app-bar-nav-icon>
           </template>
           <v-list class="menu-list">
-            <v-list-item class="menu-links__item">
-              <v-list-item-title> Home </v-list-item-title>
-            </v-list-item>
-            <v-list-item class="menu-links__item">
-              <v-list-item-title> Featured collections </v-list-item-title>
-            </v-list-item>
-            <v-list-item class="menu-links__item">
-              <v-list-item-title> My profile </v-list-item-title>
+            <v-list-item
+              class="menu-links__item"
+              v-for="(item, i) in menuItems"
+              :key="i"
+              @click="currentPage = item"
+            >
+              <v-list-item-title
+                ><a href="#" :class="currentPage === item ? 'selected' : ''">{{
+                  item
+                }}</a></v-list-item-title
+              >
             </v-list-item>
           </v-list>
         </v-menu>
 
         <ul class="menu-icons">
-          <li class="menu-icons__item"><v-icon>mdi-account-outline</v-icon></li>
+          <li class="menu-icons__item">
+            <v-icon @click.stop="">mdi-account-outline</v-icon>
+          </li>
           <li class="menu-icons__item">
             <v-icon @click="goToSearch = true">mdi-magnify</v-icon>
           </li>
@@ -59,6 +71,8 @@ export default {
   data() {
     return {
       goToSearch: false,
+      menuItems: ["Home", "Featured collections", "My profile"],
+      currentPage: "Home",
     };
   },
 };

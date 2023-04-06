@@ -27,29 +27,13 @@
         label="Search for high-resolution photos"
       />
       <ul class="search__menu">
-        <li>
-          <button class="search__menu-btn">Trending</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Nature</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Travel</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Animals</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Food</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Health</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Technology</button>
-        </li>
-        <li>
-          <button class="search__menu-btn">Events</button>
+        <li v-for="(item, i) in searchMenu" :key="i">
+          <button
+            :class="'search__menu-btn ' + searchButtons[item]"
+            @click="changeButtonState(item)"
+          >
+            {{ item }}
+          </button>
         </li>
       </ul>
     </section>
@@ -74,14 +58,16 @@
         </div>
         <ul class="gallery__small-article-actions">
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-bookmark-outline</v-icon>
+            <v-icon @click="changeColor(0, 0)">{{ icons[0][0] }}</v-icon>
           </li>
           <v-spacer />
           <li class="gallery__small-article-actions-item mr-7">
-            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+            <v-icon @click="changeColor(0, 1)">{{ icons[0][1] }}</v-icon
+            >&nbsp;128
           </li>
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+            <v-icon @click="changeColor(0, 2)">{{ icons[0][2] }}</v-icon
+            >&nbsp;512
           </li>
         </ul>
       </article>
@@ -104,14 +90,16 @@
         </div>
         <ul class="gallery__small-article-actions">
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-bookmark-outline</v-icon>
+            <v-icon @click="changeColor(1, 0)">{{ icons[1][0] }}</v-icon>
           </li>
           <v-spacer />
           <li class="gallery__small-article-actions-item mr-7">
-            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+            <v-icon @click="changeColor(1, 1)">{{ icons[1][1] }}</v-icon
+            >&nbsp;128
           </li>
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+            <v-icon @click="changeColor(1, 2)">{{ icons[1][2] }}</v-icon
+            >&nbsp;512
           </li>
         </ul>
       </article>
@@ -166,14 +154,16 @@
 
           <ul class="gallery__big-article-actions">
             <li class="gallery__big-article-actions-item">
-              <v-icon>mdi-bookmark-outline</v-icon>
+              <v-icon @click="changeColor(2, 0)">{{ icons[2][0] }}</v-icon>
             </li>
             <v-spacer />
             <li class="gallery__big-article-actions-item mr-7">
-              <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+              <v-icon @click="changeColor(2, 1)">{{ icons[2][1] }}</v-icon
+              >&nbsp;128
             </li>
             <li class="gallery__big-article-actions-item">
-              <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+              <v-icon @click="changeColor(2, 2)">{{ icons[2][2] }}</v-icon
+              >&nbsp;512
             </li>
           </ul>
         </div>
@@ -229,14 +219,16 @@
 
           <ul class="gallery__big-article-actions">
             <li class="gallery__big-article-actions-item">
-              <v-icon>mdi-bookmark-outline</v-icon>
+              <v-icon @click="changeColor(3, 0)">{{ icons[3][0] }}</v-icon>
             </li>
             <v-spacer />
             <li class="gallery__big-article-actions-item mr-7">
-              <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+              <v-icon @click="changeColor(3, 1)">{{ icons[3][1] }}</v-icon
+              >&nbsp;128
             </li>
             <li class="gallery__big-article-actions-item">
-              <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+              <v-icon @click="changeColor(3, 2)">{{ icons[3][2] }}</v-icon
+              >&nbsp;512
             </li>
           </ul>
         </div>
@@ -263,14 +255,18 @@
         </div>
         <ul class="gallery__small-article-actions">
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-bookmark-outline</v-icon>
+            <v-icon @click="changeColor(i + 4, 0)">{{
+              icons[i + 4][0]
+            }}</v-icon>
           </li>
           <v-spacer />
           <li class="gallery__small-article-actions-item mr-7">
-            <v-icon>mdi-heart-outline</v-icon>&nbsp;128
+            <v-icon @click="changeColor(i + 4, 1)">{{ icons[i + 4][1] }}</v-icon
+            >&nbsp;128
           </li>
           <li class="gallery__small-article-actions-item">
-            <v-icon>mdi-comment-outline</v-icon>&nbsp;512
+            <v-icon @click="changeColor(i + 4, 2)">{{ icons[i + 4][2] }}</v-icon
+            >&nbsp;512
           </li>
         </ul>
       </article>
@@ -411,6 +407,38 @@ export default {
           class: "detail-dialog__gallery-image",
         },
       ],
+      searchMenu: [
+        "Trending",
+        "Nature",
+        "Travel",
+        "Animals",
+        "Food",
+        "Health",
+        "Technology",
+        "Events",
+      ],
+      searchButtons: {
+        Trending: "",
+        Nature: "",
+        Travel: "",
+        Animals: "",
+        Food: "",
+        Health: "",
+        Technology: "",
+        Events: "",
+      },
+      icons: [
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+        ["mdi-bookmark-outline", "mdi-heart-outline", "mdi-comment-outline"],
+      ],
     };
   },
   methods: {
@@ -441,6 +469,28 @@ export default {
       let element = this.$refs["search"];
       let top = element.offsetTop;
       window.scrollTo(0, top);
+    },
+    changeButtonState(item) {
+      if (this.searchButtons[item] === "selected") {
+        this.searchButtons[item] = "";
+      } else {
+        this.searchButtons[item] = "selected";
+      }
+    },
+    changeColor(elemIndex, iconIndex) {
+      if (this.icons[elemIndex][iconIndex].includes("-outline")) {
+        this.$set(
+          this.icons[elemIndex],
+          iconIndex,
+          this.icons[elemIndex][iconIndex].replace("-outline", "")
+        );
+      } else {
+        this.$set(
+          this.icons[elemIndex],
+          iconIndex,
+          this.icons[elemIndex][iconIndex] + "-outline"
+        );
+      }
     },
   },
   props: {

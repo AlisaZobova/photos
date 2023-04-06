@@ -37,6 +37,22 @@
       format("woff");
 }
 
+@mixin header_link() {
+  text-decoration: none;
+  color: black !important;
+  font-family: "HelveticaNeue-Light", serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  &:active {
+    font-weight: 600;
+  }
+
+  &.selected {
+    color: #57a773 !important;
+  }
+}
+
 html::-webkit-scrollbar {
   width: 0;
 }
@@ -80,15 +96,7 @@ html::-webkit-scrollbar-track {
 
       .menu-links__item {
         a {
-          text-decoration: none;
-          color: black !important;
-          font-family: "HelveticaNeue-Light", serif;
-          font-size: 14px;
-          font-weight: 400;
-
-          &:active {
-            color: green !important;
-          }
+          @include header_link();
         }
         .v-icon {
           width: 15px;
@@ -106,9 +114,21 @@ html::-webkit-scrollbar-track {
       .menu-icons__item {
         width: 20px;
         height: 20px;
+
+        .v-icon:hover {
+          transform: scale(1.1);
+        }
+
+        .v-icon:active {
+          color: #100e0b;
+        }
       }
     }
   }
+}
+
+.v-menu__content a {
+  @include header_link();
 }
 
 @media screen and (min-width: 850px) {
@@ -586,6 +606,17 @@ html::-webkit-scrollbar-track {
     font-size: 18px;
     font-weight: 400;
     margin-top: 21px;
+
+    &:hover {
+      transform: scale(1.05);
+      background: #029334;
+    }
+
+    &:active {
+      background: white;
+      color: #57a773 !important;
+      border: #57a773 1px solid;
+    }
   }
 }
 
@@ -634,6 +665,18 @@ html::-webkit-scrollbar-track {
       font-family: HelveticaNeue-Medium, serif;
       font-size: 16px;
       font-weight: 400;
+      color: #979cab;
+
+      &:hover,
+      &.selected {
+        color: #464a56;
+        border: #464a56 1px solid;
+      }
+
+      &:active {
+        color: #464a56;
+        border: none;
+      }
     }
   }
 }
@@ -702,6 +745,13 @@ html::-webkit-scrollbar-track {
         font-size: 14px;
         font-weight: 400;
         letter-spacing: 0.1625px;
+
+        .v-icon:hover {
+          transform: scale(1.1);
+        }
+        .v-icon::after {
+          background-color: white;
+        }
       }
     }
   }
@@ -820,6 +870,14 @@ html::-webkit-scrollbar-track {
           font-size: 14px;
           font-weight: 400;
           letter-spacing: 0.1625px;
+
+          .v-icon:hover {
+            transform: scale(1.1);
+          }
+
+          .v-icon::after {
+            background-color: white;
+          }
         }
       }
     }
