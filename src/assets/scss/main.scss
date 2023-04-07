@@ -179,6 +179,10 @@ $grey-border: $light 1px solid;
         .v-icon:active {
           color: $grey-darken-3;
         }
+
+        &-search::after {
+          background-color: white;
+        }
       }
     }
   }

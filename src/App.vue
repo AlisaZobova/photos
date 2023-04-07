@@ -56,7 +56,9 @@
             <v-icon @click.stop="">mdi-account-outline</v-icon>
           </li>
           <li class="menu-icons__item">
-            <v-icon @click="goToSearch = true">mdi-magnify</v-icon>
+            <v-icon class="menu-icons__item-search" @click="goToSearch = true"
+              >mdi-magnify</v-icon
+            >
           </li>
         </ul>
       </nav>
