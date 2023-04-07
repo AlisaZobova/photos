@@ -460,7 +460,7 @@ $grey-border: $light 1px solid;
   }
 }
 
-@media screen and (min-width: 594px) and (max-width: 849px) {
+@media screen and (min-width: 572px) and (max-width: 849px) {
   .page-header {
     nav {
       .v-app-bar__nav-icon {
@@ -470,7 +470,7 @@ $grey-border: $light 1px solid;
   }
 
   .promo {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     .promo__text {
       .promo__text-title {
         font-size: 72px;
@@ -512,7 +512,7 @@ $grey-border: $light 1px solid;
     height: 400px;
   }
 }
-@media screen and (min-width: 468px) and (max-width: 593px) {
+@media screen and (min-width: 468px) and (max-width: 571px) {
   .page-header {
     nav {
       .v-app-bar__nav-icon {
@@ -534,10 +534,6 @@ $grey-border: $light 1px solid;
     .promo__hero-image {
       height: 380px;
     }
-  }
-
-  .search {
-    top: 530px;
   }
 
   .gallery {
@@ -569,6 +565,22 @@ $grey-border: $light 1px solid;
   }
 }
 
+@media screen and (min-width: 446px) and (max-width: 571px) {
+  .search {
+    top: 530px;
+  }
+}
+@media screen and (min-width: 341px) and (max-width: 445px) {
+  .search {
+    top: 510px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .search {
+    top: 530px;
+  }
+}
+
 @media screen and (max-width: 467px) {
   .page-header {
     nav {
@@ -591,10 +603,6 @@ $grey-border: $light 1px solid;
     .promo__hero-image {
       height: 385px;
     }
-  }
-
-  .search {
-    top: 530px;
   }
 
   .gallery {
