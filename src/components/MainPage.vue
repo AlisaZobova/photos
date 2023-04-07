@@ -310,7 +310,9 @@
           />
         </section>
         <footer>
-          <v-icon class="detail-dialog__more-icon">mdi-dots-horizontal</v-icon>
+          <v-icon @click.stop="" class="detail-dialog__more-icon"
+            >mdi-dots-horizontal</v-icon
+          >
         </footer>
       </v-card>
     </v-dialog>

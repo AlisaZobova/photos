@@ -69,11 +69,22 @@
 @mixin actions_icon() {
   .v-icon:hover {
     @include smooth();
-    color: black;
+    color: #100e0b;
   }
   .v-icon::after {
     @include smooth();
     background-color: white;
+  }
+}
+
+@mixin big_article_button() {
+  &:hover {
+    @include smooth();
+    background-color: #332f2e !important;
+    color: #eaeaea !important;
+    .v-icon {
+      color: #eaeaea !important;
+    }
   }
 }
 
@@ -849,6 +860,8 @@
             border-radius: 25px;
             align-items: center;
             justify-content: center;
+
+            @include big_article_button();
           }
 
           .gallery__big-article-more-button {
@@ -859,6 +872,8 @@
             border-radius: 50%;
             align-items: center;
             justify-content: center;
+
+            @include big_article_button();
 
             .v-icon {
               width: 24px;
@@ -897,6 +912,8 @@
   width: 1121px;
   height: 1169px;
   border-radius: 0 !important;
+
+  @include actions_icon();
   .v-card {
     border-radius: 0 !important;
   }
