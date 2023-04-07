@@ -56,37 +56,35 @@
 
 @mixin header_link() {
   @include link();
+  @include smooth();
   color: #262c30 !important;
 
   &:active,
   &--selected:active,
   &--selected:hover,
   &:hover {
-    @include smooth();
-    font-size: 15px;
+    text-decoration: underline;
   }
 
   &--selected {
-    @include smooth();
     @include link();
     color: #57a773 !important;
   }
 }
 
 @mixin actions_icon() {
+  @include smooth();
   .v-icon:hover {
-    @include smooth();
     color: #100e0b;
   }
   .v-icon::after {
-    @include smooth();
     background-color: white;
   }
 }
 
 @mixin big_article_button() {
+  @include smooth();
   &:hover {
-    @include smooth();
     background-color: #332f2e;
     color: #eaeaea !important;
     .v-icon {
@@ -159,9 +157,10 @@
         width: 20px;
         height: 20px;
 
+        @include smooth();
+
         .v-icon:hover {
           color: #57a773;
-          @include smooth();
         }
 
         .v-icon:active {
@@ -648,14 +647,13 @@
     font-weight: 400;
     margin-top: 21px;
 
+    @include smooth();
+
     &:hover {
-      @include smooth();
-      transform: scale(1.05);
       background: #029334;
     }
 
     &:active {
-      @include smooth();
       background: white;
       color: #57a773 !important;
       border: #57a773 1px solid;
@@ -701,13 +699,13 @@
 
     .search__menu-btn {
       @include search_menu_button();
+      @include smooth();
       border: #eaeaea 1px solid;
       color: #979cab;
 
       &:hover,
       &--selected:hover,
       &--selected {
-        @include smooth();
         @include search_menu_button();
         color: #464a56;
         border: #464a56 1px solid;
@@ -715,7 +713,6 @@
 
       &:active,
       &--selected:active {
-        @include smooth();
         color: #464a56;
         border: none;
       }
