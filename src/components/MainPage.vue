@@ -37,6 +37,7 @@
         class="search__input"
         append-icon="mdi-magnify"
         label="Search for high-resolution photos"
+        color="#57a773"
       />
       <ul class="search__menu">
         <li v-for="(item, i) in searchMenu" :key="i">
