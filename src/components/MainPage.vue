@@ -612,9 +612,9 @@ export default {
     },
     changeButtonState(item) {
       if (this.searchButtons[item] === "--selected") {
-        this.searchButtons[item] = "";
+        this.$set(this.searchButtons, item, "");
       } else {
-        this.searchButtons[item] = "--selected";
+        this.$set(this.searchButtons, item, "--selected");
       }
     },
     changeColor(elemIndex, iconIndex) {

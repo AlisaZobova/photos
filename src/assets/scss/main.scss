@@ -347,6 +347,14 @@ $grey-border: $light 1px solid;
 
     .search__menu-btn {
       margin-right: 10px;
+      margin-top: 8px;
+
+      &:hover,
+      &--selected:hover,
+      &--selected {
+        margin-right: 10px;
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -381,10 +389,6 @@ $grey-border: $light 1px solid;
     .search__menu {
       flex-wrap: wrap;
       width: 100%;
-
-      .search__menu-btn {
-        margin-top: 8px;
-      }
     }
   }
 
@@ -461,10 +465,6 @@ $grey-border: $light 1px solid;
     .search__menu {
       flex-wrap: wrap;
       width: 100%;
-
-      .search__menu-btn {
-        margin-top: 8px;
-      }
     }
   }
 
