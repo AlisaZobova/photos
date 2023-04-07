@@ -14,10 +14,22 @@
         <a href="#" class="promo__text-link">Explore All</a>
       </div>
       <v-img
-        class="promo__hero-image"
+        class="promo__hero-image grey lighten-2"
         src="../../public/images/hero-image.png"
         alt="Photo"
-      />
+        aspect-ratio="1"
+        lazy-src=""
+        transition="fade-transition"
+      >
+        <template v-slot:placeholder>
+          <v-row align="center" class="fill-height ma-0" justify="center">
+            <v-progress-circular
+              color="grey lighten-5"
+              indeterminate
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
     </section>
     <section class="search" ref="search">
       <h2 class="visually-hidden">Search</h2>
@@ -44,7 +56,20 @@
           @click="openDialog('./images/hero-image.png')"
           src="../../public/images/hero-image.png"
           alt="Tom Öhlin photo"
-        />
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+          class="grey lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <div class="gallery__small-article-content">
           <h3 class="gallery__small-article-title">Tom Öhlin</h3>
           <p class="gallery__small-article-subtitle">
@@ -77,7 +102,20 @@
           @click="openDialog('./images/featured_meal.png')"
           src="../../public/images/featured_meal.png"
           alt="Featured meal photo"
-        />
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+          class="grey lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <div class="gallery__small-article-content">
           <h3 class="gallery__small-article-title">Featured meal</h3>
           <p class="gallery__small-article-subtitle">
@@ -106,10 +144,22 @@
       <article class="gallery__big-article">
         <v-img
           @click="openDialog('./images/road.png')"
-          class="gallery__big-article-photo"
+          class="gallery__big-article-photo grey lighten-2"
           src="../../public/images/road.png"
           alt="Featured meal photo"
-        />
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <div class="gallery__big-article-content-wrapper">
           <div class="gallery__big-article-content">
             <h3 class="gallery__big-article-title">Featured meal</h3>
@@ -135,12 +185,28 @@
                 @scroll="onScroll"
               >
                 <v-img
-                  class="gallery__big-article-carousel-image"
+                  class="gallery__big-article-carousel-image grey lighten-2"
                   v-for="i in 5"
                   :key="i"
                   src="../../public/images/hero-image.png"
                   alt="Photo"
-                />
+                  aspect-ratio="1"
+                  lazy-src=""
+                  transition="fade-transition"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      align="center"
+                      class="fill-height ma-0"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        color="grey lighten-5"
+                        indeterminate
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
               </vue-horizontal>
             </section>
 
@@ -171,10 +237,22 @@
       <article class="gallery__big-article">
         <v-img
           @click="openDialog('./images/road.png')"
-          class="gallery__big-article-photo"
+          class="gallery__big-article-photo grey lighten-2"
           src="../../public/images/road.png"
           alt="Featured meal photo"
-        />
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <div class="gallery__big-article-content-wrapper">
           <div class="gallery__big-article-content">
             <h3 class="gallery__big-article-title">Featured meal</h3>
@@ -200,12 +278,28 @@
                 @scroll="onScroll"
               >
                 <v-img
-                  class="gallery__big-article-carousel-image"
+                  class="gallery__big-article-carousel-image grey lighten-2"
                   v-for="i in 5"
                   :key="i"
                   src="../../public/images/featured_meal.png"
                   alt="Photo"
-                />
+                  aspect-ratio="1"
+                  lazy-src=""
+                  transition="fade-transition"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      align="center"
+                      class="fill-height ma-0"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        color="grey lighten-5"
+                        indeterminate
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
               </vue-horizontal>
             </section>
 
@@ -242,7 +336,20 @@
           @click="openDialog(photo.src)"
           :src="photo.src"
           :alt="photo.alt"
-        />
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+          class="grey lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <div class="gallery__small-article-content">
           <h3 class="gallery__small-article-title">Featured meal</h3>
           <p class="gallery__small-article-subtitle">
@@ -282,15 +389,39 @@
         <v-img
           :src="dialogImage"
           alt="Photo"
-          class="detail-dialog__main-photo"
-        />
+          class="detail-dialog__main-photo grey lighten-2"
+          aspect-ratio="1"
+          lazy-src=""
+          transition="fade-transition"
+        >
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular
+                color="grey lighten-5"
+                indeterminate
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <section class="detail-dialog__author-info">
           <h2 class="visually-hidden">Author info</h2>
           <v-img
             src="../../public/images/author-photo.png"
             alt="Author photo"
-            class="detail-dialog__author-photo"
-          />
+            class="detail-dialog__author-photo grey lighten-2"
+            aspect-ratio="1"
+            lazy-src=""
+            transition="fade-transition"
+          >
+            <template v-slot:placeholder>
+              <v-row align="center" class="fill-height ma-0" justify="center">
+                <v-progress-circular
+                  color="grey lighten-5"
+                  indeterminate
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
           <span class="detail-dialog__author-account-info">
             <h3 class="detail-dialog__author-name">
               Stephanie<br />
@@ -306,8 +437,20 @@
             :key="i"
             :src="photo.src"
             :alt="photo.alt"
-            :class="photo.class"
-          />
+            :class="photo.class + ' grey lighten-2'"
+            aspect-ratio="1"
+            lazy-src=""
+            transition="fade-transition"
+          >
+            <template v-slot:placeholder>
+              <v-row align="center" class="fill-height ma-0" justify="center">
+                <v-progress-circular
+                  color="grey lighten-5"
+                  indeterminate
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
         </section>
         <footer>
           <v-icon @click.stop="" class="detail-dialog__more-icon"
