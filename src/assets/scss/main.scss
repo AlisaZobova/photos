@@ -265,18 +265,25 @@ $grey-border: $light 1px solid;
   .gallery {
     padding-bottom: 250px;
   }
+
+  .promo {
+    margin-bottom: 240px;
+  }
 }
 
 @media screen and (max-width: 1919px) and (min-width: 1650px) {
   .gallery {
     padding-bottom: 100px;
   }
+
+  .promo {
+    margin-bottom: 100px;
+  }
 }
 
 @media screen and (min-width: 1650px) {
   .promo {
     justify-content: space-between;
-    margin-bottom: 240px;
     .promo__text {
       margin: 157px auto auto auto;
       width: 425px;
