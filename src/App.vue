@@ -11,9 +11,14 @@
             :key="i"
             @click="currentPage = item"
           >
-            <a href="#" :class="currentPage === item ? 'selected' : ''">{{
-              item
-            }}</a>
+            <a
+              href="#"
+              :class="
+                'menu-links__item-url' +
+                (currentPage === item ? '--selected' : '')
+              "
+              >{{ item }}</a
+            >
           </li>
         </ul>
 
@@ -33,9 +38,14 @@
               @click="currentPage = item"
             >
               <v-list-item-title
-                ><a href="#" :class="currentPage === item ? 'selected' : ''">{{
-                  item
-                }}</a></v-list-item-title
+                ><a
+                  href="#"
+                  :class="
+                    'menu-links__item-url' +
+                    (currentPage === item ? '--selected' : '')
+                  "
+                  >{{ item }}</a
+                ></v-list-item-title
               >
             </v-list-item>
           </v-list>

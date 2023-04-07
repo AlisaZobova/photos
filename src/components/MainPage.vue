@@ -41,7 +41,7 @@
       <ul class="search__menu">
         <li v-for="(item, i) in searchMenu" :key="i">
           <button
-            :class="'search__menu-btn ' + searchButtons[item]"
+            :class="'search__menu-btn' + searchButtons[item]"
             @click="changeButtonState(item)"
           >
             {{ item }}
@@ -610,10 +610,10 @@ export default {
       window.scrollTo(0, top);
     },
     changeButtonState(item) {
-      if (this.searchButtons[item] === "selected") {
+      if (this.searchButtons[item] === "--selected") {
         this.searchButtons[item] = "";
       } else {
-        this.searchButtons[item] = "selected";
+        this.searchButtons[item] = "--selected";
       }
     },
     changeColor(elemIndex, iconIndex) {

@@ -47,21 +47,28 @@
   transition: all 0.5s ease-in-out;
 }
 
-@mixin header_link() {
+@mixin link() {
   text-decoration: none;
-  color: #262c30 !important;
   font-family: "HelveticaNeue-Light", serif;
   font-size: 14px;
   font-weight: 400;
+}
+
+@mixin header_link() {
+  @include link();
+  color: #262c30 !important;
 
   &:active,
+  &--selected:active,
+  &--selected:hover,
   &:hover {
     @include smooth();
     font-size: 15px;
   }
 
-  &.selected {
+  &--selected {
     @include smooth();
+    @include link();
     color: #57a773 !important;
   }
 }
@@ -80,12 +87,22 @@
 @mixin big_article_button() {
   &:hover {
     @include smooth();
-    background-color: #332f2e !important;
+    background-color: #332f2e;
     color: #eaeaea !important;
     .v-icon {
       color: #eaeaea !important;
     }
   }
+}
+
+@mixin search_menu_button() {
+  border-radius: 20px;
+  width: 103px;
+  height: 40px;
+  margin-right: 10px;
+  font-family: HelveticaNeue-Medium, serif;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .visually-hidden {
@@ -122,7 +139,7 @@
       margin-right: 73px;
 
       .menu-links__item {
-        a {
+        .menu-links__item-url {
           @include header_link();
         }
         .v-icon {
@@ -155,7 +172,7 @@
   }
 }
 
-.v-menu__content a {
+.v-menu__content .menu-links__item-url {
   @include header_link();
 }
 
@@ -683,24 +700,21 @@
     padding: 0 !important;
 
     .search__menu-btn {
+      @include search_menu_button();
       border: #eaeaea 1px solid;
-      border-radius: 20px;
-      width: 103px;
-      height: 40px;
-      margin-right: 10px;
-      font-family: HelveticaNeue-Medium, serif;
-      font-size: 16px;
-      font-weight: 400;
       color: #979cab;
 
       &:hover,
-      &.selected {
+      &--selected:hover,
+      &--selected {
         @include smooth();
+        @include search_menu_button();
         color: #464a56;
         border: #464a56 1px solid;
       }
 
-      &:active {
+      &:active,
+      &--selected:active {
         @include smooth();
         color: #464a56;
         border: none;
