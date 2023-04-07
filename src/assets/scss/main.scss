@@ -61,9 +61,12 @@
 
   &:active,
   &--selected:active,
-  &--selected:hover,
   &:hover {
     text-decoration: underline;
+  }
+
+  &--selected:hover {
+    cursor: default;
   }
 
   &--selected {
