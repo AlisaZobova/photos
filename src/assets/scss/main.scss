@@ -40,7 +40,7 @@
 }
 
 $light: #eaeaea;
-$grey-lighten-2: #a4a8b2;
+$grey-lighten-2: #cccdd7;
 $grey-lighten-1: #85878c;
 $grey-darken-1: #464a56;
 $grey-darken-2: #262c30;
@@ -110,10 +110,17 @@ $grey-border: $light 1px solid;
   border-radius: 20px;
   width: 103px;
   height: 40px;
-  margin-right: 10px;
   font-family: HelveticaNeue-Medium, serif;
   font-size: 16px;
   font-weight: 400;
+}
+
+@mixin clickable_image() {
+  @include smooth();
+  cursor: pointer;
+  &:hover {
+    box-shadow: 2px 2px 2px #cacbd0;
+  }
 }
 
 .visually-hidden {
@@ -254,6 +261,18 @@ $grey-border: $light 1px solid;
   }
 }
 
+@media screen and (min-width: 1920px) {
+  .gallery {
+    padding-bottom: 250px;
+  }
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1650px) {
+  .gallery {
+    padding-bottom: 100px;
+  }
+}
+
 @media screen and (min-width: 1650px) {
   .promo {
     justify-content: space-between;
@@ -286,7 +305,7 @@ $grey-border: $light 1px solid;
     }
 
     .search__menu {
-      width: 883px;
+      width: 890px;
       justify-content: space-between;
       padding: 0 !important;
     }
@@ -318,6 +337,10 @@ $grey-border: $light 1px solid;
 
   .search__menu {
     padding: 12px 30px 20px !important;
+
+    .search__menu-btn {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -359,7 +382,7 @@ $grey-border: $light 1px solid;
   }
 
   .gallery {
-    padding: 0 32px;
+    padding: 0 32px 32px;
 
     .gallery__big-article {
       .gallery__big-article-content-wrapper {
@@ -493,7 +516,7 @@ $grey-border: $light 1px solid;
     top: 620px;
   }
   .gallery {
-    padding: 0 32px;
+    padding: 0 32px 32px;
 
     .gallery__small-article {
       width: 368px;
@@ -512,6 +535,7 @@ $grey-border: $light 1px solid;
     height: 400px;
   }
 }
+
 @media screen and (min-width: 468px) and (max-width: 571px) {
   .page-header {
     nav {
@@ -537,7 +561,7 @@ $grey-border: $light 1px solid;
   }
 
   .gallery {
-    padding: 0 32px;
+    padding: 0 32px 32px;
 
     .gallery__small-article {
       width: 368px;
@@ -606,7 +630,7 @@ $grey-border: $light 1px solid;
   }
 
   .gallery {
-    padding: 0 16px;
+    padding: 0 16px 16px;
     .gallery__small-article {
       width: 100%;
       .gallery__small-article-content {
@@ -743,7 +767,6 @@ $grey-border: $light 1px solid;
   gap: 32px;
   max-width: 1568px;
   margin: 0 auto;
-  padding-bottom: 32px;
 
   .gallery__small-article {
     max-height: 501px;
@@ -753,7 +776,7 @@ $grey-border: $light 1px solid;
     .v-image {
       border-radius: 10px 10px 0 0;
       display: block;
-      cursor: pointer;
+      @include clickable_image();
     }
 
     .gallery__small-article-content {
@@ -814,7 +837,7 @@ $grey-border: $light 1px solid;
 
     .gallery__big-article-photo {
       display: block;
-      cursor: pointer;
+      @include clickable_image();
     }
 
     .gallery__big-article-content-wrapper {
@@ -850,11 +873,12 @@ $grey-border: $light 1px solid;
           font-size: 14px;
           font-weight: 400;
           line-height: 18px;
+          letter-spacing: 0.07px;
         }
 
         .gallery__big-article-carousel {
           margin-top: 42px;
-          margin-bottom: 30px;
+          margin-bottom: 26px;
           cursor: grab;
           user-select: none;
 
@@ -864,6 +888,12 @@ $grey-border: $light 1px solid;
             display: block;
             border-radius: 5px;
             margin-right: 16px;
+
+            @include smooth();
+
+            &:hover {
+              box-shadow: 2px 2px 2px #cacbd0;
+            }
           }
         }
 
@@ -966,6 +996,7 @@ $grey-border: $light 1px solid;
       width: 87px;
       height: 80px;
       border-radius: 50%;
+      @include clickable_image();
     }
     .detail-dialog__author-account-info {
       margin-left: 32px;
@@ -1004,11 +1035,13 @@ $grey-border: $light 1px solid;
       display: block;
       width: 133px;
       height: 131px;
+      @include clickable_image();
     }
     .detail-dialog__gallery-image-big {
       display: block;
       width: 199px;
       height: 131px;
+      @include clickable_image();
     }
   }
   footer {
